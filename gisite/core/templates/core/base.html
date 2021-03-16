@@ -3,25 +3,24 @@
 <head>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'core/base.css' %}">
-    <title>{% block title %}Genshin Builds {% endblock %}</title>
+    <title>{% block title %}Genshin Builds: {{ title }} {% endblock %}</title>
 </head>
 <body>
     <header>
-        <h1>Genshin Impact</h1>
         <nav>
-            <ul>
-                <li><a href="">Home</a></li>
-                <li><a href="">Characters</a></li>
-                <li><a href="">Builds</a></li>
-                <li><a href="">Contact</a></li>
-                <li><a href="">Login</a></li>
+            <h1 id="logo" href="#home">Genshin Impact</h1>
+            <ul class="list-links">
+                <li class="list-item"><a class="link-item" href="#characters">Characters</a></li>
+                <li class="list-item"><a class="link-item" href="#builds">Builds</a></li>
+                <li class="list-item"><a class="link-item" href="#contact">Contact</a></li>
+                <li class="list-item"><a class="link-item" href="#login">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <section>
+    <main>
         {% block content %}{% endblock %}
-    </section>
+    </main>
     <footer>
     </footer>
 </body>
