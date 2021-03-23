@@ -1,0 +1,15 @@
+.char {
+    width: 70px;
+    height: 70px;
+    background-color: #2c2c2c;
+    border-radius: 4px;
+}
+
+.create-build {
+    padding: 16px;
+    float: right;
+    background: #13C0C7;
+    border-radius: 5px;
+    color: white;
+    text-decoration: none;
+}

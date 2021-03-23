@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+
     {% load static %}
+    {% block extra_css %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'core/base.css' %}">
-    <title>{% block title %}Genshin Builds: {{ title }} {% endblock %}</title>
+    <title>Genshin Builds: {{ title }}</title>
+
 </head>
 <body>
     <header>
