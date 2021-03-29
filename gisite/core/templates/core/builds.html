@@ -1,13 +1,11 @@
 {% extends "./base.html" %}
 
-{% block extra_css %}
+{% block extra_head %}
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'core/builds.css' %}">
 {% endblock %}
 
 {% block content %}
-    <a class="create-build" href="#new-build">Create Build</a>
-    {% for character in characters %}
-        <img class="char" src="{{ url_api }}/{{ character }}/icon.png" alt="{{ character }}">
-    {% endfor %}
+    <a class="create-build" href="new-build">Create Build</a>
+
 {% endblock %}

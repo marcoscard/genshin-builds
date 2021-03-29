@@ -3,7 +3,7 @@
 <head>
 
     {% load static %}
-    {% block extra_css %}{% endblock %}
+    {% block extra_head %}{% endblock %}
     <link rel="stylesheet" type="text/css" href="{% static 'core/base.css' %}">
     <title>Genshin Builds: {{ title }}</title>
 
@@ -14,7 +14,7 @@
             <h1 id="logo" href="#home">Genshin Impact</h1>
             <ul class="list-links">
                 <li class="list-item"><a class="link-item" href="#characters">Characters</a></li>
-                <li class="list-item"><a class="link-item" href="#builds">Builds</a></li>
+                <li class="list-item"><a class="link-item" href="/builds">Builds</a></li>
                 <li class="list-item"><a class="link-item" href="#contact">Contact</a></li>
                 <li class="list-item"><a class="link-item" href="#login">Login</a></li>
             </ul>
