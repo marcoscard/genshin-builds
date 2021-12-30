@@ -1,28 +1,39 @@
 {% extends "./base.html" %}
 
 {% block extra_head %}
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'core/build_form.css' %}">
-    <script src="{% static 'core/js/build_form.js' %}"></script>
+{% load static %}
+<link rel="stylesheet" href="{% static 'core/build_form.css' %}">
+<script src="{% static 'core/js/build_form.js' %}"></script>
 {% endblock %}
 
+{{ title }}
+
 {% block content %}
-    <form action="/create/" method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <div class="slot" id="slot1" onclick="abrir()"></div>
-        <div id="modal-container">
-            <div id="modal-content">
-                <div id="modal-header">
-                    <h1>Select a Character</h1>
-                </div>
-                <div id="modal-body">
-                    {% for character in characters %}
-                        <img src="{{ url_api }}/{{ character }}/icon.png" alt="{{ character }}" id="character-select" onclick="selecionar('{{ url_api }}/{{ character }}/icon.png')">
-                    {% endfor %}
-                </div>
+<form action='' method="post">
+    {% csrf_token %}
+    <div class="fieldWrapper">
+        {% for field in form %}
+        {{ field.label_tag }}
+        {{ field }}
+        {% endfor %}
+    </div>
+    <div class="slot" id="slot1" onclick="abrir()"></div>
+    <div class="slot" id="slot2" onclick="abrir()"></div>
+    <div class="slot" id="slot3" onclick="abrir()"></div>
+    <div class="slot" id="slot4" onclick="abrir()"></div>
+    <div id="modal-container">
+        <div id="modal-content">
+            <div id="modal-header">
+                <h1>Select a Character</h1>
+            </div>
+            <div id="modal-body">
+                {% for character in characters %}
+                <img src="{{ url_api }}/{{ character }}/icon.png" alt="{{ character }}" id="character-select"
+                    onclick="selecionar('{{ url_api }}/{{ character }}/icon.png', '{{ character }}')">
+                {% endfor %}
             </div>
         </div>
-        <input type="submit" value="Enviar">
-    </form>
+    </div>
+    <input type="submit" value="Enviar">
+</form>
 {% endblock %}

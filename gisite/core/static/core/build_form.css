@@ -1,5 +1,5 @@
 div.slot {
-    display: block;
+    display: inline-block;
     background: #1a1a1a;
     width: 75px;
     height: 75px;
@@ -8,6 +8,10 @@ div.slot {
 div.slot:hover {
     background: #1a1a1a80;
     cursor: pointer;
+}
+
+input[type="submit"] {
+    display: block;
 }
 
 #modal-container {
@@ -47,4 +51,9 @@ div.slot:hover {
 
 #character-select:hover {
     cursor: pointer;
+}
+
+.fieldWrapper label {
+    display: block;
+    color: white;
 }

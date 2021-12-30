@@ -2,6 +2,7 @@ from django import forms
 import json
 from .models import Build
 
+
 class BuildForm(forms.ModelForm):
     class Meta:
         model = Build
@@ -9,17 +10,11 @@ class BuildForm(forms.ModelForm):
             'title',
             'author',
             'guide',
-            'character_1'
+            'characters'
         ]
-    title = forms.CharField(label='Title', max_length=120)  
-    author = forms.CharField(label='Author', max_length=50)
-    guide = forms.CharField(label='Guide', widget=forms.Textarea)
-    character_1 = forms.CharField(widget=forms.HiddenInput())
-
-    def clean_character_1(self, *args, **kwargs):
-        jdata = self.cleaned_data['character_1']
-        try:
-            json_data = json.loads(jdata)
-        except:
-            raise forms.ValidationError()
-        return jdata
+        widgets = {
+            'title': forms.TextInput(attrs={'class': 'form-build', 'id': 'form-title'}),
+            'author': forms.TextInput(attrs={'placeholder': 'Anonymous', 'class': 'form-build', 'id': 'form-author'}),
+            'guide': forms.Textarea(attrs={'class': 'form-build', 'id': 'form-guide'}),
+            'characters': forms.HiddenInput(attrs={'class': 'form-build', 'id': 'form-characters'})
+        }
