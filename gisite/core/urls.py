@@ -7,4 +7,5 @@ urlpatterns = [
     path('builds/', views.builds, name='builds'),
     path('builds/new-build/', views.build_form, name='build_form'),
     path('builds/<slug:slug>/', views.detailed_build, name='detailed_build'),
+    path('thanks/', views.thanks, name='thanks')
 ]

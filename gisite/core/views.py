@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render 
 import requests
 from django.http import HttpResponseRedirect
 from .forms import BuildForm
@@ -50,3 +50,6 @@ def detailed_build(request, slug):
         "object": obj
     }
     return render(request, "core/detailed_build.html", context=ctx)
+
+def thanks(request):
+    return render(request, 'core/thanks.html')

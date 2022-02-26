@@ -3,7 +3,7 @@
 {% block extra_head %}
 {% load static %}
 <link rel="stylesheet" href="{% static 'core/build_form.css' %}">
-<script src="{% static 'core/js/build_form.js' %}"></script>
+<script src="{% static 'core/js/build_form.js' %}" defer></script>
 {% endblock %}
 
 {{ title }}
@@ -17,10 +17,10 @@
         {{ field }}
         {% endfor %}
     </div>
-    <div class="slot" id="slot1" onclick="abrir()"></div>
-    <div class="slot" id="slot2" onclick="abrir()"></div>
-    <div class="slot" id="slot3" onclick="abrir()"></div>
-    <div class="slot" id="slot4" onclick="abrir()"></div>
+    <div class="slot" onclick="abrir(0)"></div>
+    <div class="slot" onclick="abrir(1)"></div>
+    <div class="slot" onclick="abrir(2)"></div>
+    <div class="slot" onclick="abrir(3)"></div>
     <div id="modal-container">
         <div id="modal-content">
             <div id="modal-header">

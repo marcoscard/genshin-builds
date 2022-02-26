@@ -1,23 +1,35 @@
-function abrir() {
-    var selectiontab = document.querySelector('div#modal-container')
-    selectiontab.style.display = 'block'
-    
+const selectiontab = document.getElementById('modal-container')
+const listslot = document.getElementsByClassName('slot')
+let hiddeninput_character = document.getElementById('form-characters')
+let slot = undefined
+let character_obj = {}
+
+function abrir(id) {
+  slot = listslot[id]
+  slot.id = id
+  selectiontab.style.display = 'block'
 }
 
 function selecionar(url, character) {
-    var img = document.createElement('img')
-    var slot = document.getElementById('slot1')
-    var selectiontab = document.querySelector('div#modal-container')
-    var hiddeninput_character = document.getElementById('id_characters')
+  if (slot.hasChildNodes()) {
+    let img = document.getElementById('character' + slot.id)
     img.src = url
-    img.id = 'character1'
-    if (!slot.hasChildNodes()) {
-        slot.appendChild(img)
-    }
-    var character_obj = {"1": character}
-    var myJSON = JSON.stringify(character_obj)
-    hiddeninput_character.value = myJSON
-    selectiontab.style.display = 'none'
-    console.log(character_obj)
-    console.log(myJSON)
+  }
+  else {
+    let img = document.createElement('img')
+    img.src = url
+    img.id = 'character' + slot.id
+    slot.appendChild(img)
+  }
+  character_obj[slot.id] = character
+  console.log(character_obj)
+  hiddeninput_character.value = JSON.stringify(character_obj)
+  console.log(hiddeninput_character)
+  selectiontab.style.display = 'none'
+
+  // var myJSON = JSON.stringify(character_obj)
+  // hiddeninput_character.value = myJSON
+  // selectiontab.style.display = 'none'
+  // console.log(character_obj)
+  // console.log(myJSON)
 }
